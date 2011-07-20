@@ -85,11 +85,18 @@ class MainController extends Controller {
         $graph->setAttributes(array('size' => '8,5', 'rankdir' => 'LR'));
         $transiciones = array();
      
+		$cont = 0;
         foreach($estados as $estado) {
             if(!$estado->esFinal()) {
                 $graph->addNode('q' . $estado->getID(), array('shape' => 'circle'));
             } else {
                 $graph->addNode('q' . $estado->getID(), array('shape' => 'doublecircle'));
+            }
+            
+            if($cont == 0) {
+                $graph->addNode('null', array('shape' => 'plaintext', 'label' => ''));
+                $graph->addEdge(array('null' => 'q'. $estado->getID()), array('label' => ''));
+				$cont++;
             }
             
             $transiciones = $estado->getArregloTransiciones();
@@ -133,12 +140,17 @@ class MainController extends Controller {
         $graph = new Image_GraphViz(true, array(), 'AFD', false);
         $graph->setAttributes(array('size' => '8,5', 'rankdir' => 'LR'));
         $transiciones = array();
-     
+				
         foreach($estados as $estado) {
             if(!$estado->esFinal()) {
                 $graph->addNode('q' . $estado->getID(), array('shape' => 'circle'));
             } else {
                 $graph->addNode('q' . $estado->getID(), array('shape' => 'doublecircle'));
+            }
+            
+            if($estado->esInicial()) {
+                $graph->addNode('null', array('shape' => 'plaintext', 'label' => ''));
+                $graph->addEdge(array('null' => 'q'. $estado->getID()), array('label' => ''));
             }
             
             $transiciones = $estado->getArregloTransiciones();
