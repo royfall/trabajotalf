@@ -154,7 +154,7 @@ class Thompson {
         return true;
     }
     
-    function concatExpand($regex)
+    function expandeConcatenacion($regex)
     {
             $strRes = '';
     
@@ -163,8 +163,8 @@ class Thompson {
                     $cLeft	= $regex[$i];
                     $cRight = $regex[$i+1];
                     $strRes .= $cLeft;
-                    if(($this->isInput($cLeft)) || ($this->isRightParanthesis($cLeft)) || ($cLeft == '*'))
-                            if(($this->isInput($cRight)) || ($this->isLeftParanthesis($cRight)))
+                    if(($this->esEntrada($cLeft)) || ($this->esParentesisDer($cLeft)) || ($cLeft == '*'))
+                            if(($this->esEntrada($cRight)) || ($this->esParentesisIzq($cRight)))
                                     $strRes .= '.';
             }
             $strRes .= $regex[strlen($regex)-1];
@@ -172,12 +172,12 @@ class Thompson {
             return $strRes;
     }
     
-    function isInput($char)
+    function esEntrada($char)
     {
-        return (!$this->isOperator($char));
+        return (!$this->esOperador($char));
     }
     
-    function isOperator($char)
+    function esOperador($char)
     {
         switch($char) {
             case '.': return true; break;
@@ -189,12 +189,12 @@ class Thompson {
         return false;
     }
     
-    function isRightParanthesis($caracter)
+    function esParentesisDer($caracter)
     {
         return ($caracter == ')');
     }
     
-    function isLeftParanthesis($caracter)
+    function esParentesisIzq($caracter)
     {
         return ($caracter == '(');
     }
@@ -226,7 +226,7 @@ class Thompson {
             return false;
     }
     
-    function presedence($operador_izq, $operador_der)
+    function presedencia($operador_izq, $operador_der)
     {
 		if($operador_izq == $operador_der)
 			return true;
@@ -251,23 +251,23 @@ class Thompson {
     
     function generarAFND()
     {
-        $this->regex = $this->concatExpand($this->regex);
+        $this->regex = $this->expandeConcatenacion($this->regex);
 
         for($i=0; $i<strlen($this->regex); ++$i)
         {
           // obtiene el caracter
           $c = $this->regex[$i];
       
-          if($this->isInput($c))
+          if($this->esEntrada($c))
            $this->push($c);
           elseif(empty($this->operadores))
             $this->operadores[] = $c;
-          elseif($this->isLeftParanthesis($c))
+          elseif($this->esParentesisIzq($c))
             $this->operadores[] = $c;
-          elseif($this->isRightParanthesis($c))
+          elseif($this->esParentesisDer($c))
           {
             // evalúa todo en el parentesis
-            while(!$this->isLeftParanthesis($this->operadores[count($this->operadores)-1]))
+            while(!$this->esParentesisIzq($this->operadores[count($this->operadores)-1]))
               if(!$this->opeval())
                 return false;
             // remueve el paretensis izquierdo despues de la evaluación
@@ -275,7 +275,7 @@ class Thompson {
           }
           else
           {
-            while(!empty($this->operadores) && $this->presedence($c, $this->operadores[count($this->operadores)-1])) /**** AAAAAAAAAA ***/
+            while(!empty($this->operadores) && $this->presedencia($c, $this->operadores[count($this->operadores)-1])) /**** AAAAAAAAAA ***/
               if(!$this->opeval())
                 return false;
             $this->operadores[] = $c;
