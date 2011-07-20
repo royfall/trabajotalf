@@ -12,8 +12,6 @@ Para este trabajo se realizó una implementación el algoritmo de Thompson en PH
 * Repositorio PEAR habilitado
 * Graphviz instalado
 
-## INSTALACIÓN
-
 ## AUTOR
 
 Roy Herskovics Bolzman
