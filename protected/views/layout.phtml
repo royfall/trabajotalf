@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+    <title>Trabajo Nº1 de TALF</title> 
+    <meta charset="utf-8" /> 
+    <link rel="stylesheet" href="<?php echo $cfg['base_url'] ?>/style.css" /> 
+</head>
+<body>
+    <div id="wrapper"> 
+	<div id="header"> 
+	    <div class="title left"> 
+                <h1>Trabajo Nº1 de TALF</h1> 
+		<p class="subtitle">Primer semestre 2011</p> 
+	    </div>
+            <div class="logo right" /><img src="<?php echo $cfg['base_url'] ?>/images/utem.png" alt="UTEM" style="width:80px; height: 100px; margin:30px 30px 0 0;"/></div>
+	</div> 
+	<div id="content-wrapper"> 
+	    <div id="content" class="left"> 
+                <div class="entry"> 
+<?php echo $view_contents ?>
+                </div>
+            </div> 
+            <div id="sidebar" class="right">
+		<div class="sidecontent"> 
+		    <div class="side-title"><h2>Expresión Regular</h2></div> 
+                    <?php if(isset($_SESSION['regex'])): ?>
+                    <p class="regex"><?php echo $_SESSION['regex'] ?></p>
+                    <?php else: ?>
+                    <p>No se ha introducido ninguna expresión regular</p>
+                    <?php endif ?>
+		</div>
+		<div class="sidecontent"> 
+		    <div class="side-title"><h2>Opciones</h2></div> 
+		    <ul>
+		    <li><a href="<?php echo $cfg['base_url'] ?>/" title="Expresion regular">Ingresar expresión regular</a></li> 
+		    <li><a href="<?php echo $cfg['base_url'] ?>/main/ver_afnd" title="AFND">Ver el AFND-ε generado</a></li> 
+		    <li><a href="<?php echo $cfg['base_url'] ?>/main/ver_afd" title="AFD">Ver el AFD generado</a></li>
+                    <li><a href="<?php echo $cfg['base_url'] ?>/main/verificar_palabra" title="Verificar palabra">Verificar una palabra</a></li> 
+		    <li><a href="<?php echo $cfg['base_url'] ?>/main/generar_palabras" title="Generar palabras">Generar palabras</a></li>
+		    </ul> 
+		</div>
+		<div class="sidecontent">
+		    <div class="side-title"><h2>Enlaces</h2></div> 
+		    <ul>
+		    <li><a href="http://code.rails.cl/trabajo_talf/" title="Explorar Código">Explorar código fuente</a></li> 
+		    <li><a href="<?php echo $cfg['base_url'] ?>/main/descargar_informe" title="Descargar Informe">Descargar informe</a></li> 
+		    </ul> 
+		</div>
+	</div><!-- end #content -->
+	<div class="clearfix"></div> 
+    </div>
+    <div id="footer"> 
+	<div id="about"> 
+            <div class="about-text text left"><p><b>Integrantes:</b> <br /> Paula Bello León <br /> Roy Herskovics Bolzman</p></div> 
+            <div class="clearfix"></div> 
+	</div>
+    </div>
+</body> 
+</html>

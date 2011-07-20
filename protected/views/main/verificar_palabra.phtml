@@ -1,0 +1,15 @@
+                    			<h2>Verificar una palabra</h2><hr /> 
+					<div class="post-body">
+                                            <form method="post" action="<?php echo $cfg['base_url'] ?>/main/verificar_palabra">
+                                                <p>Ingrese una palabra para reconocer si ésta pertenece o no al lenguaje.</p>
+                                                <input type="text" name="palabra" /><br />
+                                                <input type="submit" value="Verificar palabra">
+                                            </form>
+                                            <?php if(!empty($resultado) && isset($_POST['palabra']) && $resultado): ?>
+                                            <?php if(empty($_POST['palabra'])) $_POST['palabra'] = 'ε'; ?>
+                                            <p>La palabra "<?php echo $_POST['palabra'] ?>" si pertenece al lenguaje.</p>
+                                            <?php elseif(isset($_POST['palabra'])): ?>
+                                            <p>La palabra "<?php echo $_POST['palabra'] ?>" no pertenece al lenguaje.</p>
+                                            <?php endif ?>
+                                        </div>
+                                        

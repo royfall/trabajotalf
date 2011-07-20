@@ -1,0 +1,23 @@
+					<h2>Generador de palabras del lenguaje</h2><hr /> 
+					<div class="post-body">
+                                            <form method="post" action="<?php echo $cfg['base_url'] ?>/main/generar_palabras">
+                                                <p>Ingrese la cantidad de palabras a generar.</p>
+                                                <input type="text" name="n" /><br />
+                                                <p>Ingrese el largo máximo de las palabras a generar.</p>
+                                                <input type="text" name="k" /><br />
+                                                <input type="submit" value="Generar palabras">
+                                            </form>
+                                                <?php if(!empty($palabras) && isset($_POST['n'], $_POST['k'])): ?>
+                                            <p><b>Palabras generadas:</b><br />
+                                                <ul>
+                                                <?php foreach($palabras as $palabra): ?>
+						<?php if(empty($palabra)): ?>
+						<li>ε</li>
+						<?php else: ?>
+                                                <li><?php echo $palabra ?></li>
+                                                <?php endif ?>
+						<?php endforeach ?>
+                                                </ul>
+                                            </p>
+                                                <?php endif ?>
+                                        </div> 
