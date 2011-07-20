@@ -1,4 +1,4 @@
-# ThinkUp, social media insights engine
+# TRABAJO DE TALF Nº1
 
 Trabajo realizado para la asignatura de Teoría de Autómatas.
 El trabajo consiste en desarrollar un analizador sintáctico para expresiones regulares.
