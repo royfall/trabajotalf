@@ -6,6 +6,12 @@ Para este trabajo se realizó una implementación el algoritmo de Thompson en PH
 
 ## REQUERIMIENTOS
 
+* Servidor Web Apache 2
+* Apache mod-rewrite habilitado
+* PHP version 5.3 o superior
+* Repositorio PEAR habilitado
+* Graphviz instalado
+
 ## INSTALACIÓN
 
 ## AUTOR
