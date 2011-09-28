@@ -13,7 +13,7 @@ class MainController extends Controller {
     function index()
     {
         if(!empty($_POST['regex']))
-            $_SESSION['regex'] = $_POST['regex'];
+            $_SESSION['regex'] = trim($_POST['regex']);
     }
     
     function verificar_palabra()
