@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+
 // constantes base
 define('DS', DIRECTORY_SEPARATOR);
 define('BASE_PATH', realpath(__DIR__) . DS);
