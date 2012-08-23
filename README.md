@@ -14,6 +14,12 @@ Para este trabajo se realizó una implementación del algoritmo de Thompson en P
 * Repositorio PEAR habilitado
 * Graphviz instalado
 
+## INSTALACIÓN
+
+* git clone https://github.com/royfall/trabajotalf.git
+* sudo pear channel-update pear.php.net
+* sudo pear install Image_GraphViz-1.3.0
+
 ## AUTOR
 
 Roy Herskovics Bolzman
