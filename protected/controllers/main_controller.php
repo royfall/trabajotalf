@@ -108,7 +108,7 @@ class MainController extends Controller {
             }
         }
         
-        $graph->image('jpeg');
+        $graph->image();
     }
     
     function ver_afd()
@@ -162,7 +162,7 @@ class MainController extends Controller {
             }
         }
         
-        $graph->image('jpeg');
+        $graph->image();
     }
     
     function descargar_informe()
