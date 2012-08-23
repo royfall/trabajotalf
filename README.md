@@ -12,13 +12,13 @@ Para este trabajo se realizó una implementación del algoritmo de Thompson en P
 * Apache mod-rewrite habilitado
 * PHP version 5.3 o superior
 * Repositorio PEAR habilitado
-* Graphviz instalado
+* Graphviz instalado en el sistema
 
 ## INSTALACIÓN
 
 * git clone https://github.com/royfall/trabajotalf.git
-* sudo pear channel-update pear.php.net
-* sudo pear install Image_GraphViz-1.3.0
+* pear channel-update pear.php.net
+* pear install Image_GraphViz-1.3.0
 
 ## AUTOR
 
